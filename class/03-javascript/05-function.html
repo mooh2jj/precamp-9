@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tokenText{
+            display: inline;     /* inline */
+            background-color: rgb(207, 218, 61);
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 15px;
+            font-weight: 1000;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        const getToken = () => {
+            const token = String(Math.floor(Math.random()*1000000)).padStart(6, "0")
+            console.log(token)
+            
+            setTimeout(()=>{
+                document.getElementById('tokenText').innerText = token;
+                alert("인증번호 발송되었습니다!");
+            }, 2000);
+            
+        }   
+    </script>
+
+    <span id="tokenText">******</span>
+    <button id="btn" onclick="getToken()">인증번호 전송</button>
+
+</body>
+</html>

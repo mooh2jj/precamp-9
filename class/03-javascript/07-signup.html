@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>event lisner</title>
+</head>
+<body>
+    <script>
+
+        const check = () => {
+            const email = document.getElementById('email').value;
+            const password1 =document.getElementById('password1').value;
+            const password2 =document.getElementById('password2').value;
+
+            if(email !== "" && password1 !== "" && password2 !== ""){
+                // document.getElementById('joinBtn').setAttribute("style", "background-color: yellow;")
+                document.getElementById('joinBtn').style.backgroundColor = "yellow"     // good 다른 방법
+                // document.getElementById('joinBtn').setAttribute("disabled", "false")    // 안됨!
+                document.getElementById('joinBtn').removeAttribute('disabled')    
+            } else {
+                // document.getElementById('joinBtn').setAttribute("style", "background-color: none;")
+                document.getElementById('joinBtn').style.removeProperty("background-color");
+                document.getElementById('joinBtn').setAttribute("disabled", "true")     
+            }
+
+        }
+
+    </script>
+
+    <input type="text" name="" id="email" oninput="check()" placeholder="이메일을 입력해주세요!" size=25> <br/>
+    <input type="password" name="" id="password1" oninput="check()" placeholder="비밀번호를 입력해 주세요" size=25> <br/>
+    <!-- <input type="password" name="" id="password2" onchange="check()" onkeyup="onchange()" placeholder="비밀번호를 다시 입력해 주세요" size=25> <br/> -->
+    <input type="password" name="" id="password2" oninput="check()" placeholder="비밀번호를 다시 입력해 주세요" size=25> <br/>
+    <button id="joinBtn" disabled>회원가입</button>
+</body>
+</html>

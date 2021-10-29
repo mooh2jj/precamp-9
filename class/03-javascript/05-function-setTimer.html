@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+    #tokenText {
+        display: inline; /* inline */
+        background-color: rgb(207, 218, 61);
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 15px;
+        font-weight: 1000;
+    }
+
+    #count {
+        color: brown;
+        font-weight: 800;
+    }
+    </style>
+    </head>
+    <body>
+    <script>
+
+    let isTimer = false;
+
+    const getToken = () => {
+
+        if(isTimer === false){          // 타이머가 꺼져 있을 때, 타이머가 실행
+
+            isTimer = true
+
+            const token = String(Math.floor(Math.random() * 1000000)).padStart(6, "0");
+            document.getElementById("tokenText").innerText = token;
+        
+            let time = 180;     // setInterval 안에 들어가면 작동되지 x ???
+
+            setInterval(() => {
+                                // 여기서 깍이고 깍이니 // 여기안에 있으면 180 다시 갱신 
+                const min = Math.floor(time/60);
+                const sec = String(time%60).padStart(2,"0");
+
+                if (time >= 0) {
+                    
+                    document.getElementById("count").innerText = min + ':' + sec;
+                    time = time - 1;
+                }
+            }, 1000);    
+        }   
+    };
+    </script>
+
+    <span id="tokenText">000000</span>
+    <button id="btn" onclick="getToken()">인증번호 전송</button>
+    <div id="count">0:00</div>
+    </body>
+</html>

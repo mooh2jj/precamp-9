@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>게임</title>
+    <link href="styles/game.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <style>
+        .count{
+            display: inline;
+            color: brown;
+            font-weight: 900;
+        }
+    </style>
+    <script>
+        let count = 0;
+
+        function startWord(){
+            // 1. 제시어 가져오기
+            const word = document.getElementById('word').innerText      // 코드캠프
+            const lastWord = word[word.length-1]     // 4
+            
+            // 2. 내가 쓴 단어 가져오기
+            const myword = document.getElementById('myword').value                 // 프랑스
+            const firstWord = myword[0];
+            // console.log("firstWord: " + firstWord)             
+            
+
+            // 3. 제시어 === 내가 쓴 단어 비교 & 결과에 적용하기
+            if(lastWord === firstWord){
+                // 정답
+                count++;
+                console.log('count: '+count)
+                document.getElementById('result').innerText = '정답!'
+                document.getElementById('count').innerText = count;
+                document.getElementById('word').innerText = myword
+                document.getElementById('myword').value = "";
+                
+            } else {
+                // 오답
+                if(count > 0){
+                    count--
+                    document.getElementById('result').innerText = '땡!'
+                    console.log('count: '+ count)
+                    document.getElementById('count').innerText = count;
+                }
+            }
+            
+        }
+    </script>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="wrapper__header">
+            <span class="title">GAME</span> <span class="subtitle">TODAY CHOICE</span>
+        </div>
+        <div class="wrapper__word">
+            <div class="wrapper__word__header">
+                <div>
+                    <img src="images/word.png">
+                </div>
+
+                <div class="title">
+                    끝말잇기
+                </div>
+                <div class="word_title">
+                    제시어: <span id="word">코드캠프</span>
+                </div>
+            </div>
+            <div class="wrapper__word__body">
+                <input id="myword" class="textbox" type="text" placeholder="단어를 입력하세요." />
+                <button onclick="startWord()">검색</button>
+            </div>
+            <div id="result" class="wrapper__word__footer">
+                결과!
+            </div>
+            <span id="count" class="count">0</span>
+        </div>
+        <div class="wrapper__lotto">
+            <div class="wrapper__word__header">
+                <div>
+                    <img src="images/lotto.png">
+                </div>
+                <div class="title">
+                    LOTTO
+                </div>
+                <div class="word_title">
+                버튼을 누르세요.
+                </div>
+            </div>
+            <div class="wrapper__lotto__body">
+                <span>3</span>
+                <span>5</span>
+                <span>10</span>
+                <span>24</span>
+                <span>30</span>
+                <span>34</span>
+            </div>
+            <div class="wrapper__word__footer">
+                <button class="wrapper__lotto__btn">Button</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

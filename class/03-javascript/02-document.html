@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM 동작</title>
+    <script>
+        function qqq(){
+            document.getElementById("qqq").innerHTML = "<strong>반갑습니다.</strong>"
+        }
+
+        function counter(){
+            const temp = document.getElementById('count').innerText;
+            let cnt = parseInt(temp);
+            console.log(cnt)
+            cnt++;
+            
+            document.getElementById('count').innerText = cnt;
+            console.log(document.getElementById('count').innerText)
+        }
+    </script>
+</head>
+<body>
+    <div id="qqq">안녕하세요</div>
+    <button onclick="qqq()">클릭하기</button>
+    <br/>
+    <br/>
+    <div id="count">0</div>
+    <button onclick="counter()">count++</button>
+</body>
+</html>

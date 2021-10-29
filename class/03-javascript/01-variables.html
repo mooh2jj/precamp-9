@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>variables_prac</title>
+</head>
+<body>
+    <script>
+        document.write(1===1)
+
+        let child = 'dsg';
+
+        console.log(child)
+
+        const strarray = ['dsg' ,'ghj' ,'thy' ,'rty']
+        strarray.forEach((x,i) => {
+            console.log(x,i);
+        });
+
+        const numarr = [1, 4, 5];
+
+        console.log(numarr.map(Math.sqrt));
+
+        const map1 = numarr.map(x => x*2);
+
+        console.log(map1);
+
+        numarr.push(10);
+
+        console.log(numarr);
+
+        numarr.pop();
+
+        console.log(numarr);
+
+        const myMoney = 9500;
+
+        for (const i in numarr) {
+            console.log(numarr[i])
+        }
+
+        const obj = {
+            a:1,
+            b:2,
+            c:3
+        };
+
+        for (const key in obj) {
+            console.log(`${key} : ${obj[key]}`);    // 백틱 `` 사용
+        }
+
+
+        numarr.filter(x => x%2 == 0).forEach( x => {
+            console.log(x); // 2의 약수만 축출한다.
+        })
+
+        const stralpa = ['a', 'b', 'c'];
+
+        const concat = numarr.concat(stralpa);
+        console.log(`concat: ${concat}`);
+
+        console.log(`includes : ${concat.includes('a')}`)
+
+        console.log(`${concat.join('-')}`)      // 
+
+        console.log(`${concat.slice(2)}`)   // substr, split 은 String
+
+        // console.log(`${concat.replace('a', '*')}`)      // false, replace 는 문자열에서 확인가능! 배열은 안됨
+
+        // console.log(`${concat.split(2)}`)  
+
+        const email = "dsg@gmail.com";
+
+        for(let i =0; i<email.trim().length; i++){
+            const char = email.charAt(i);
+            console.log(char);
+            if(char === '@'){
+                console.log("ckwdk")
+            }
+        }
+
+    </script>
+</body>
+</html>
